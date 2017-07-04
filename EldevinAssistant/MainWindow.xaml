@@ -5,8 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EldevinAssistant"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Eldevin Assistant" Height="300" Width="500">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="converter" />
+    </Window.Resources>
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Expander Header="Forestry" Background="DarkGreen">
+            <StackPanel Height="110" Grid.Row="0">
+                <CheckBox Name="forestryDaily1" Margin="0,3,0,0" Background="White">
+                    <Image Source="/images/forestry_daily_1.png" Stretch="None" Margin="-3,-3,0,0"/>
+                </CheckBox>
+                <CheckBox Name="forestryDaily2" Margin="0,3,0,0">
+                    <Image Source="/images/forestry_daily_2.png" Stretch="None" Margin="-3,-3,0,0"/>
+                </CheckBox>
+                <CheckBox Name="forestryDaily3" Margin="0,3,0,0">
+                    <Image Source="/images/forestry_daily_3.png" Stretch="None" Margin="-3,-3,0,0"/>
+                </CheckBox>
+                <CheckBox Name="forestryDaily4" Margin="0,3,0,0">
+                    <Image Source="/images/forestry_daily_4.png" Stretch="None" Margin="-3,-3,0,0"/>
+                </CheckBox>
+                <CheckBox Name="forestryDaily5" Margin="0,3,0,0">
+                    <Image Source="/images/forestry_daily_5.png" Stretch="None" Margin="-3,-3,0,0"/>
+                </CheckBox>
+            </StackPanel>
+        </Expander>
+
+        <WrapPanel Grid.Row="1">
+            <!-- Forestry -->
+            <Image Source="Images/pynwood_log_10.png" Visibility="{Binding ElementName=forestryDaily1, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <Image Source="Images/pynwood_log_10.png" Visibility="{Binding ElementName=forestryDaily2, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <Image Source="Images/pynwood_log_10.png" Visibility="{Binding ElementName=forestryDaily2, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <Image Source="Images/pynwood_log_10.png" Visibility="{Binding ElementName=forestryDaily3, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <Image Source="Images/pynwood_log_10.png" Visibility="{Binding ElementName=forestryDaily3, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <Image Source="Images/pynwood_log_10.png" Visibility="{Binding ElementName=forestryDaily4, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <Image Source="Images/pynwood_log_10.png" Visibility="{Binding ElementName=forestryDaily4, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <Image Source="Images/pynwood_log_10.png" Visibility="{Binding ElementName=forestryDaily4, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <Image Source="Images/lithistle_log_10.png" Visibility="{Binding ElementName=forestryDaily5, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <!-- TODO: If Forestry 3 and 4 are checked we want to display wood_sap_25 instead -->
+            <Image Source="Images/wood_sap_10.png" Visibility="{Binding ElementName=forestryDaily3, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+            <Image Source="Images/wood_sap_15.png" Visibility="{Binding ElementName=forestryDaily4, Path=IsChecked, Converter={StaticResource converter}}" VerticalAlignment="Top"/>
+        </WrapPanel>
     </Grid>
 </Window>
